@@ -1,0 +1,24 @@
+{
+  "name": "alpinejs-sticky",
+  "version": "1.1.0",
+  "description": "Add classes when an element is stuck in the viewport",
+  "keywords": [
+    "Alpine",
+    "Alpine JS",
+    "Alpine JS Plugins",
+    "Alpine JS Stuck",
+    "Alpine JS Sticky",
+    "Sticky"
+  ],
+  "author": "Mark Mead",
+  "license": "MIT",
+  "main": "dist/sticky.cjs.js",
+  "module": "dist/sticky.esm.js",
+  "unpkg": "dist/sticky.min.js",
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.12.22"
+  }
+}

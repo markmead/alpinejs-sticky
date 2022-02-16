@@ -4,8 +4,6 @@ Alpine JS plugin `x-sticky` allows you to toggle class names on elements when an
 
 ## Example 👀
 
-### JSON
-
 ```html
 <div class="h-[3000px] p-8 space-y-8" x-data>
   <h1 class="text-3xl">👋</h1>

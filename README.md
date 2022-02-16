@@ -7,32 +7,33 @@ Alpine JS plugin `x-sticky` allows you to toggle class names on elements when an
 ### JSON
 
 ```html
-<div class="h-[3000px]" x-data>
-  <div class="px-4 py-12 sm:px-6 lg:px-8 bg-gray-100">
-    <h1 class="text-xl font-medium">Hello World! 👋</h1>
-  </div>
+<div class="h-[3000px] p-8 space-y-8" x-data>
+  <h1 class="text-3xl">👋</h1>
 
   <div
-    class="flex justify-between bg-gray-200 py-4 px-4 sm:px-6 lg:px-8 sticky top-0"
-    x-sticky="bg-blue-600 text-white"
-    x-sticky-parent
+    class="flex justify-between bg-white p-4 border-2 border-blue-500 sticky top-0 sticky-root"
+    x-sticky="!border-red-500 !bg-red-50"
   >
-    <p class="text-sm">I'm Sticky!</p>
+    <p>🕸🕸🕸</p>
 
-    <p class="hidden" x-sticky.parent="!block">
-      Hello! I appear when my parent is sticky!
-    </p>
+    <p class="hidden" x-sticky.sticky-root="!block">🕸🕸</p>
+  </div>
+
+  <div class="py-32">
+    <p class="hidden" x-sticky.sticky-root="!block">🕸</p>
   </div>
 </div>
 ```
 
-`x-sticky="bg-blue-600 text-white"`
+`x-sticky="!border-red-500 !bg-red-50"`
 
-This will add `bg-blue-600 text-white` to that element when it is stuck in the viewport.
+This will add `!border-red-500 !bg-red-50` to that element when it is stuck in the viewport.
 
-`x-sticky.parent="!block"`
+`x-sticky.sticky-root="!block"`
 
-This will add `!block` to that element when the parent element with `x-sticky-parent` is stuck in the viewport.
+This will add `!block` to that element when the element with the class `sticky-root` is stuck in the viewport.
+
+_Class names must be lowercase_
 
 ## Options
 

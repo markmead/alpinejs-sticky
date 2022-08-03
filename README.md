@@ -1,61 +1,21 @@
 # Apline JS Sticky
 
-Alpine JS plugin `x-sticky` allows you to toggle class names on elements when an element is stuck in the viewport 🕸
+Toggle CSS class names when an element becomes sticky to the DOM 🐙
 
-## Example 👀
+## Install
 
-```html
-<div class="h-[3000px] p-8 space-y-8" x-data>
-  <h1 class="text-3xl">👋</h1>
-
-  <div
-    class="flex justify-between bg-white p-4 border-2 border-blue-500 sticky top-0 sticky-root"
-    x-sticky="!border-red-500 !bg-red-50"
-  >
-    <p>🕸🕸🕸</p>
-
-    <p class="hidden" x-sticky.sticky-root="!block">🕸🕸</p>
-  </div>
-
-  <div class="py-32">
-    <p class="hidden" x-sticky.sticky-root="!block">🕸</p>
-  </div>
-</div>
-```
-
-`x-sticky="!border-red-500 !bg-red-50"`
-
-This will add `!border-red-500 !bg-red-50` to that element when it is stuck in the viewport.
-
-`x-sticky.sticky-root="!block"`
-
-This will add `!block` to that element when the element with the class `sticky-root` is stuck in the viewport.
-
-_Class names must be lowercase_
-
-## Options
-
-There are two options you can pass.
-
-- `x-sticky-root` (`-1px 0px 0px 0px`)
-- `x-sticky-threshold` (`[1]`)
-
-99% of the time the defaults will be fine, however you may want to change this.
-
-[MDN IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
-
-## Install 🌟
-
-It's very easy to install Alpine JS plugins! 🙌
-
-### CDN
+### With a CDN
 
 ```html
-<script src="https://unpkg.com/alpinejs-sticky@1.x.x/dist/sticky.min.js"></script>
+<script
+  defer
+  src="https://unpkg.com/alpinejs-sticky@latest/dist/sticky.min.js"
+></script>
+
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 ```
 
-### NPM/Yarn
+### With a Package Manager
 
 ```shell
 npm i -D alpinejs-sticky
@@ -63,22 +23,47 @@ npm i -D alpinejs-sticky
 yarn add -D alpinejs-sticky
 ```
 
-Then you can register the plugin.
-
 ```js
-import Alpine from "alpinejs";
-import sticky from "alpinejs-sticky";
+import Alpine from 'alpinejs'
+import sticky from 'alpinejs-sticky'
 
-Alpine.plugin(sticky);
+Alpine.plugin(sticky)
 
-window.Alpine = Alpine;
-
-Alpine.start();
+Alpine.start()
 ```
 
-### Stats 📊
+## Example
 
-Here's some stats about the Alpine JS Sticky package! As you can see, it's tiny 🤏
+```html
+<div x-data>
+  <div class="sticky top-0 sticky-root" x-sticky="!bg-red-500">
+    <p class="hidden" x-sticky.sticky-root="!block">Hello World!</p>
+  </div>
+
+  <p class="hidden" x-sticky.sticky-root="!block">Hello World!</p>
+</div>
+```
+
+`x-sticky="!bg-red-500"`
+
+This will add `!bg-red-500` to the element when it is sticky to the DOM.
+
+`x-sticky.sticky-root="!block"`
+
+This will add `!block` to the element when the `sticky-root` element is sticky to the DOM.
+
+_This example uses Tailwind CSS classes, but any CSS class names will work._
+
+## Options
+
+There are two options you can use to manipulate how the `x-sticky` instance works.
+
+- `x-sticky-root` (`-1px 0px 0px 0px`)
+- `x-sticky-threshold` (`[1]`)
+
+[MDN IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+
+### Stats
 
 ![](https://img.shields.io/bundlephobia/min/alpinejs-sticky)
 ![](https://img.shields.io/npm/v/alpinejs-sticky)

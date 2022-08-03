@@ -1,5 +1,5 @@
-import sticky from "../src/index.js";
+import sticky from '../src/index.js'
 
-document.addEventListener("alpine:init", () => {
-  window.Alpine.plugin(sticky);
-});
+document.addEventListener('alpine:init', () => {
+  window.Alpine.plugin(sticky)
+})

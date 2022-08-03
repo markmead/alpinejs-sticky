@@ -1,3 +1,3 @@
-import sticky from "../src/index.js";
+import sticky from '../src/index.js'
 
-export default sticky;
+export default sticky

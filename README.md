@@ -9,7 +9,7 @@ Toggle CSS class names when an element becomes sticky to the DOM 🐙
 ```html
 <script
   defer
-  src="https://unpkg.com/alpinejs-sticky@1.x.x/dist/sticky.min.js"
+  src="https://unpkg.com/alpinejs-sticky@latest/dist/sticky.min.js"
 ></script>
 
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>

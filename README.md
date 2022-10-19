@@ -1,4 +1,4 @@
-# Apline JS Sticky
+# Alpine JS Sticky
 
 Toggle CSS class names when an element becomes sticky to the DOM 🐙
 
@@ -57,14 +57,21 @@ _This example uses Tailwind CSS classes, but any CSS class names will work._
 
 ## Options
 
-There's one option you can use to manipulate how the `x-sticky` instance works.
+**`x-sticky-inactive`**
 
-- `x-sticky-root` (`-1px 0px 0px 0px`)
+This allows you to pass classes that apply to the element when it's not stuck.
+These will be toggled alongside the active classes.
+
+Using this means you do not need an `! important` modifier with your CSS.
+
+**`x-sticky-root`**
+
+By default this is `-1px 0px 0px 0px`.
 
 [MDN IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
 
-> Note: I've removed the ability to adjust the `threshold`, it doesn't seem
-> necessary when working with sticky elements.
+I have removed the `x-sticky-threshold` option as I found it unnecessary through
+my uses.
 
 ### Stats
 

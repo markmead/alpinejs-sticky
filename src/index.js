@@ -1,24 +1,33 @@
 export default function (Alpine) {
   Alpine.directive('sticky', (el, { expression, modifiers }) => {
-    let targetEl = modifiers[0]
+    const targetEl = modifiers[0]
       ? document.querySelector(`.${modifiers[0]}`)
       : el
-    let classNames = expression.split(' ')
-    let rootMarginAttr = el.getAttribute('x-sticky-root') || '-1px 0px 0px 0px'
-    let rootMarginThreshold = el.getAttribute('x-sticky-threshold') || [1]
-    let rootEl = targetEl || el
+    const classNames = expression.split(' ')
+    const rootMarginAttr =
+      el.getAttribute('x-sticky-root') || '-1px 0px 0px 0px'
+    const inactiveClasses = el.getAttribute('x-sticky-inactive') || ''
+    const inactiveClassesArray = inactiveClasses.split(' ')
+    const rootEl = targetEl || el
 
-    const observer = new IntersectionObserver(
-      ([e]) =>
-        classNames.map((className) =>
-          el.classList.toggle(className, e.intersectionRatio < 1)
-        ),
+    function handleClasses(e) {
+      inactiveClassesArray.forEach(function (className) {
+        el.classList.toggle(className, e.intersectionRatio === 1)
+      })
+
+      classNames.forEach(function (className) {
+        el.classList.toggle(className, e.intersectionRatio < 1)
+      })
+    }
+
+    const intersectionObserver = new IntersectionObserver(
+      ([e]) => handleClasses(e),
       {
         rootMargin: rootMarginAttr,
-        threshold: rootMarginThreshold,
+        threshold: 1,
       }
     )
 
-    observer.observe(rootEl)
+    intersectionObserver.observe(rootEl)
   })
 }

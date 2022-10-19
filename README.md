@@ -50,18 +50,21 @@ This will add `!bg-red-500` to the element when it is sticky to the DOM.
 
 `x-sticky.sticky-root="!block"`
 
-This will add `!block` to the element when the `sticky-root` element is sticky to the DOM.
+This will add `!block` to the element when the `sticky-root` element is sticky
+to the DOM.
 
 _This example uses Tailwind CSS classes, but any CSS class names will work._
 
 ## Options
 
-There are two options you can use to manipulate how the `x-sticky` instance works.
+There's one option you can use to manipulate how the `x-sticky` instance works.
 
 - `x-sticky-root` (`-1px 0px 0px 0px`)
-- `x-sticky-threshold` (`[1]`)
 
 [MDN IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+
+> Note: I've removed the ability to adjust the `threshold`, it doesn't seem
+> necessary when working with sticky elements.
 
 ### Stats
 

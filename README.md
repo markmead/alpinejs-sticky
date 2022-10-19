@@ -57,6 +57,16 @@ At times you might need to apply the `! important` modifier to your CSS.
 
 _This example uses Tailwind CSS classes, but any CSS class names will work._
 
+## Modifiers
+
+As shown you can pass a class name as a modifier to target a specific HTML
+element.
+
+You can also pass `wait` which will use the `scroll` event listener instead of
+the `IntersectionObserver`. Why would you want this? Well, it comes in handy
+when the element is already at the top of the DOM and you don't want the stuck
+classes applying.
+
 ## Options
 
 **`x-sticky-inactive`**

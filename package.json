@@ -1,6 +1,6 @@
 {
   "name": "alpinejs-sticky",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Add classes when an element is stuck in the viewport",
   "keywords": [
     "Alpine",

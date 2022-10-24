@@ -1,24 +1,22 @@
+import { useScroll } from './useScroll'
+import { useObserver } from './useObserver'
+
 export default function (Alpine) {
   Alpine.directive('sticky', (el, { expression, modifiers }) => {
-    let targetEl = modifiers[0]
-      ? document.querySelector(`.${modifiers[0]}`)
-      : el
-    let classNames = expression.split(' ')
-    let rootMarginAttr = el.getAttribute('x-sticky-root') || '-1px 0px 0px 0px'
-    let rootMarginThreshold = el.getAttribute('x-sticky-threshold') || [1]
-    let rootEl = targetEl || el
-
-    const observer = new IntersectionObserver(
-      ([e]) =>
-        classNames.map((className) =>
-          el.classList.toggle(className, e.intersectionRatio < 1)
-        ),
-      {
-        rootMargin: rootMarginAttr,
-        threshold: rootMarginThreshold,
-      }
+    const waitModifier = modifiers.find(
+      (alpineModifier) => alpineModifier === 'wait'
     )
+    const elModifier = modifiers.find(
+      (alpineModifier) => alpineModifier !== 'wait'
+    )
+    const rootEl = elModifier ? document.querySelector(`.${elModifier}`) : el
+    const rootMargin = el.getAttribute('x-sticky-root') || '-1px 0px 0px 0px'
+    const activeClasses = expression.split(' ')
+    let inactiveClasses = el.getAttribute('x-sticky-inactive') || ''
+    inactiveClasses = inactiveClasses ? inactiveClasses.split(' ') : false
 
-    observer.observe(rootEl)
+    waitModifier
+      ? useScroll(inactiveClasses, activeClasses, rootEl, el)
+      : useObserver(rootMargin, inactiveClasses, activeClasses, rootEl, el)
   })
 }

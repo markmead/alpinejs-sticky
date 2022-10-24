@@ -1,4 +1,4 @@
-# Apline JS Sticky
+# Alpine JS Sticky
 
 Toggle CSS class names when an element becomes sticky to the DOM 🐙
 
@@ -36,32 +36,54 @@ Alpine.start()
 
 ```html
 <div x-data>
-  <div class="sticky top-0 sticky-root" x-sticky="!bg-red-500">
-    <p class="hidden" x-sticky.sticky-root="!block">Hello World!</p>
+  <div class="sticky top-0 sticky-root" x-sticky="bg-red-500">
+    <p class="hidden" x-sticky.sticky-root="block">Hello World!</p>
   </div>
 
-  <p class="hidden" x-sticky.sticky-root="!block">Hello World!</p>
+  <p class="hidden" x-sticky.sticky-root="block">Hello World!</p>
 </div>
 ```
 
-`x-sticky="!bg-red-500"`
+`x-sticky="bg-red-500"`
 
-This will add `!bg-red-500` to the element when it is sticky to the DOM.
+This will add `bg-red-500` to the element when it is sticky to the DOM.
 
-`x-sticky.sticky-root="!block"`
+`x-sticky.sticky-root="block"`
 
-This will add `!block` to the element when the `sticky-root` element is sticky to the DOM.
+This will add `block` to the element when the `sticky-root` element is sticky to
+the DOM.
+
+At times you might need to apply the `! important` modifier to your CSS.
 
 _This example uses Tailwind CSS classes, but any CSS class names will work._
 
+## Modifiers
+
+As shown you can pass a class name as a modifier to target a specific HTML
+element.
+
+You can also pass `wait` which will use the `scroll` event listener instead of
+the `IntersectionObserver`. Why would you want this? Well, it comes in handy
+when the element is already at the top of the DOM and you don't want the stuck
+classes applying.
+
 ## Options
 
-There are two options you can use to manipulate how the `x-sticky` instance works.
+**`x-sticky-inactive`**
 
-- `x-sticky-root` (`-1px 0px 0px 0px`)
-- `x-sticky-threshold` (`[1]`)
+This allows you to pass classes that apply to the element when it's not stuck.
+These will be toggled alongside the active classes.
+
+Using this means you do not need an `! important` modifier with your CSS.
+
+**`x-sticky-root`**
+
+By default this is `-1px 0px 0px 0px`.
 
 [MDN IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+
+I have removed the `x-sticky-threshold` option as I found it unnecessary through
+my uses.
 
 ### Stats
 

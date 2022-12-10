@@ -36,22 +36,22 @@ Alpine.start()
 
 ```html
 <div x-data>
-  <div class="sticky top-0 sticky-root" x-sticky="bg-red-500">
-    <p class="hidden" x-sticky.sticky-root="block">Hello World!</p>
+  <div class="sticky top-0 sticky-root" x-sticky="!bg-red-500">
+    <p class="hidden" x-sticky.sticky-root="!block">Hello World!</p>
   </div>
 
-  <p class="hidden" x-sticky.sticky-root="block">Hello World!</p>
+  <p class="hidden" x-sticky.sticky-root="!block">Hello World!</p>
 </div>
 ```
 
-`x-sticky="bg-red-500"`
+`x-sticky="!bg-red-500"`
 
-This will add `bg-red-500` to the element when it is sticky to the DOM.
+This will add `!bg-red-500` to the element when it is sticky to the DOM.
 
-`x-sticky.sticky-root="block"`
+`x-sticky.sticky-root="!block"`
 
-This will add `block` to the element when the `sticky-root` element is sticky to
-the DOM.
+This will add `!block` to the element when the `sticky-root` element is sticky
+to the DOM.
 
 At times you might need to apply the `! important` modifier to your CSS.
 
